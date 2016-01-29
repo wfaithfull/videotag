@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1"
+	BorderPane.alignment="CENTER" fx:controller="me.faithfull.videotag.controllers.MenuController">
+	<center>
+		<MenuBar>
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem mnemonicParsing="false"
+							onAction="#openVideo" text="Open" />
+						<MenuItem fx:id="closeMenuItem" mnemonicParsing="false"
+							onAction="#closeVideo" text="Close" />
+						<MenuItem fx:id="saveMenuItem" mnemonicParsing="false"
+							onAction="#saveLabels" text="Save" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Help">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#showAbout"
+							text="About" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+	</center>
+</BorderPane>

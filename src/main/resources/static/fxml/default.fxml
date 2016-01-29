@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane stylesheets="static/css/application.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.faithfull.videotag.controllers.DefaultController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+      <top>
+      	<fx:include id="menu" source="menu.fxml"></fx:include>
+      </top>
+         <bottom>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                  <Button mnemonicParsing="false" onAction="#loadVideo" text="Load video" />
+              </items>
+            </ToolBar>
+         </bottom>
+         <center>
+            <Label text="VideoTag by Will Faithfull" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

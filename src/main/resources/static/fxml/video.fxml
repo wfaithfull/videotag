@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="480.0" minWidth="640.0" stylesheets="static/css/application.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.faithfull.videotag.controllers.VideoController">
+	<children>
+		<BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<center>
+				<StackPane>
+
+					<ImageView fx:id="currentFrame" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+					<Text fx:id="frameNumber" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2" text="0" StackPane.alignment="BOTTOM_LEFT">
+						<StackPane.margin>
+							<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+						</StackPane.margin>
+						<font>
+							<Font size="34.0" />
+						</font>
+					</Text>
+
+				</StackPane>
+			</center>
+			<bottom>
+				<BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+					<bottom>
+
+					</bottom>
+               <center>
+                  <FlowPane fx:id="labelPane" columnHalignment="LEFT" orientation="HORIZONTAL" BorderPane.alignment="CENTER">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                     </padding></FlowPane>
+               </center>
+               <top>
+						<ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+							<items>
+								<Button mnemonicParsing="false" onAction="#back" text="Back" />
+								<Pane HBox.hgrow="ALWAYS" />
+								<Button mnemonicParsing="false" onAction="#forward" text="Forward" />
+							</items>
+						</ToolBar>
+               </top>
+				</BorderPane>
+			</bottom>
+			<top>
+				<BorderPane BorderPane.alignment="CENTER">
+					<center>
+						<ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+							<items>
+								<Button fx:id="playStopBtn" mnemonicParsing="false" onAction="#togglePlay" text="Play" />
+                        <Separator layoutX="10.0" layoutY="10.0" orientation="VERTICAL" />
+								<Slider fx:id="playbackSpeedSlider" blockIncrement="0" max="1" min="0.1" value="1" />
+								<Label fx:id="playbackSpeedLabel" text="Label" />
+                        <Separator orientation="VERTICAL" />
+                        <TextField fx:id="goToFrameField" />
+                        <Button fx:id="goToFrameBtn" onAction="#goToFrame" mnemonicParsing="false" text="Go to Frame" />
+							</items>
+						</ToolBar>
+					</center>
+					<top>
+						<fx:include id="menu" source="menu.fxml" BorderPane.alignment="CENTER" />
+					</top>
+					<bottom>
+						<ProgressBar fx:id="progressBar" progress="0.0" BorderPane.alignment="CENTER" />
+					</bottom>
+				</BorderPane>
+			</top>
+		</BorderPane>
+	</children>
+</AnchorPane>
