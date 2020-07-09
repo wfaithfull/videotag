@@ -1,8 +1,12 @@
 package me.faithfull.videotag.models;
 
-import java.io.ByteArrayInputStream;
-import java.util.concurrent.Executors;
-
+import javafx.application.Platform;
+import javafx.beans.property.*;
+import javafx.concurrent.ScheduledService;
+import javafx.concurrent.Task;
+import javafx.scene.image.Image;
+import javafx.util.Duration;
+import me.faithfull.videotag.opencv.SeekableVideoCapture;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -10,21 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.ReadOnlyBooleanProperty;
-import javafx.beans.property.ReadOnlyIntegerProperty;
-import javafx.beans.property.ReadOnlyObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.concurrent.ScheduledService;
-import javafx.concurrent.Task;
-import javafx.scene.image.Image;
-import javafx.util.Duration;
-import me.faithfull.videotag.opencv.SeekableVideoCapture;
+import java.io.ByteArrayInputStream;
+import java.util.concurrent.Executors;
 
 @Component
 public class VideoSeekModel extends ScheduledService<Void> {

@@ -1,35 +1,13 @@
 package me.faithfull.videotag.controllers;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
-import org.opencv.core.Core;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.infinitybas.slfx.Intent;
 import com.infinitybas.slfx.SLFXController;
 import com.infinitybas.slfx.SLFXControllerFor;
-
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -40,6 +18,19 @@ import me.faithfull.videotag.DialogService;
 import me.faithfull.videotag.models.LabelFileModel;
 import me.faithfull.videotag.models.VideoSeekModel;
 import me.faithfull.videotag.opencv.SeekableVideoCapture;
+import org.opencv.core.Core;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
 @SLFXControllerFor("static/fxml/video.fxml")
 public class VideoController extends SLFXController implements Initializable {
@@ -94,12 +85,6 @@ public class VideoController extends SLFXController implements Initializable {
 
 	public ReadOnlyBooleanProperty openFileProperty() {
 		return openFileProperty;
-	}
-
-	@PostConstruct
-	public void init() {
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-
 	}
 
 	@PreDestroy

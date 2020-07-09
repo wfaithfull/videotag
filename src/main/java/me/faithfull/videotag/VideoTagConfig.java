@@ -30,6 +30,7 @@ public class VideoTagConfig {
 	@Scope("prototype")
 	SeekableVideoCapture seekableVideoCapture(String location) {
 		SeekableVideoCapture vc = new SeekableVideoCapture();
+		vc.setExceptionMode(true);
 		vc.open(location);
 		return vc;
 	}

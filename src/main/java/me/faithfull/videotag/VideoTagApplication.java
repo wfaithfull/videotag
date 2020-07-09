@@ -1,14 +1,12 @@
 package me.faithfull.videotag;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import com.infinitybas.slfx.Intent;
 import com.infinitybas.slfx.SLFX;
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 import me.faithfull.videotag.controllers.DefaultController;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * Hello world!
@@ -16,8 +14,7 @@ import me.faithfull.videotag.controllers.DefaultController;
  */
 public class VideoTagApplication extends Application
 {
-    public static void main( String[] args )
-    {
+    public static void run(String[] args) {
     	String os = System.getProperty("os.name");
     	if(os.startsWith("Windows")) {
     		String arch = System.getenv("PROCESSOR_ARCHITECTURE");
@@ -28,7 +25,10 @@ public class VideoTagApplication extends Application
     		                      ? "x64" : "x86";
     		
     		setPath("windows", realArch);
-    	};
+    	} else {
+			System.out.println("Not supported");
+			//System.exit(1);
+		}
     	System.out.println(System.getProperty("java.library.path"));
         launch(args);
     }

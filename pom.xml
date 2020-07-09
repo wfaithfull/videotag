@@ -12,6 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<javafx.version>11</javafx.version>
 	</properties>
 
 	<repositories>
@@ -28,6 +29,44 @@
 
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.2.4.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.2.3.RELEASE</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-base</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -49,12 +88,13 @@
 			<artifactId>commons-csv</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openpnp/opencv -->
 		<dependency>
-			<groupId>org.opencv</groupId>
+			<groupId>org.openpnp</groupId>
 			<artifactId>opencv</artifactId>
-			<version>3.1.0</version>
-			<scope>compile</scope>
+			<version>4.3.0-2</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -69,11 +109,18 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>com.zenjava</groupId>
-				<artifactId>javafx-maven-plugin</artifactId>
-				<version>8.2.0</version>
+				<!-- Build an executable JAR -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
 				<configuration>
-					<mainClass>me.faithfull.videotag.VideoTagApplication</mainClass>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>me.faithfull.videotag.Main</mainClass>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -83,6 +130,14 @@
 					<forkMode>once</forkMode>
 					<workingDirectory>target</workingDirectory>
 					<argLine>-Djava.library.path=${basedir}/natives</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.4</version>
+				<configuration>
+					<mainClass>me.faithfull.videotag.Main</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

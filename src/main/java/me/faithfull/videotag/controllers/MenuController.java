@@ -1,18 +1,7 @@
 package me.faithfull.videotag.controllers;
 
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-
 import com.infinitybas.slfx.Intent;
 import com.infinitybas.slfx.SLFXController;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -24,6 +13,15 @@ import me.faithfull.videotag.DialogService;
 import me.faithfull.videotag.models.LabelFileModel;
 import me.faithfull.videotag.models.VideoSeekModel;
 import me.faithfull.videotag.opencv.SeekableVideoCapture;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 @Controller
 public class MenuController extends SLFXController implements Initializable {

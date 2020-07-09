@@ -1,12 +1,10 @@
 package me.faithfull.videotag.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-
 import com.infinitybas.slfx.SLFXController;
 import com.infinitybas.slfx.SLFXControllerFor;
-
 import javafx.fxml.FXML;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 @Controller
 @SLFXControllerFor("static/fxml/default.fxml")
